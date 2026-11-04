@@ -4,6 +4,8 @@ node_modules/
 
 # Build
 dist/
+src/styles/tailwind.generated.css
+NextCode-Sprint4.zip
 
 # Variáveis de ambiente
 .env
