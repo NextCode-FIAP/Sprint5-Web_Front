@@ -42,9 +42,30 @@
 ## Solicitação: usar títulos e descrições nos espaços da galeria
 
 - **O que foi solicitado:** substituir os espaços vazios das imagens por seus títulos e ajustar os textos para corresponder ao conteúdo de cada tela.
-- **O que a IA retornou:** cartões da galeria com títulos e descrições legíveis para cadastro, captura de lousa, ajustes de imagem, modos da câmera, organização em pastas e processamento/salvamento.
-- **O que foi alterado ou rejeitado:** os avisos com nomes de arquivos e “espaço reservado” foram removidos; cada cartão mostra um ícone vetorial, título e descrição com base nos nomes e legendas já existentes. Ao adicionar o arquivo correspondente, a imagem continua sendo exibida com sua legenda.
-- **Justificativa:** manter a galeria útil sem incluir imagens ainda ausentes e sem afirmar que as funções retratadas estão implementadas no protótipo React.
+- **O que a IA retornou:** após inspecionar as imagens já disponíveis em `public/img/prototipo/`, foi reorganizada a galeria para apresentar as telas de entrada, câmera, biblioteca e fila de revisão com títulos e descrições.
+- **O que foi alterado ou rejeitado:** os nomes antigos de arquivos ausentes e as mensagens de espaço reservado foram substituídos pelos seis PNG existentes e textos que descrevem o que aparece em cada tela. A galeria mantém título e descrição acessíveis junto às imagens.
+- **Justificativa:** usar os arquivos de protótipo já disponíveis, tornar cada tela identificável e descrever somente o conteúdo visível, sem afirmar que as funções retratadas estão implementadas no protótipo React.
+
+## Solicitação: usar imagens locais nos espaços de imagem
+
+- **O que foi solicitado:** apontar os espaços que exibem imagens para os arquivos da pasta `public/img/prototipo/`.
+- **O que a IA retornou:** a galeria e o hero já utilizavam imagens locais; o simulador ainda mostrava apenas um texto de amostra até o envio de uma foto.
+- **O que foi alterado ou rejeitado:** o simulador agora inicia com `public/img/prototipo/revisao.png`, e o envio de uma foto continua substituindo essa imagem. O README foi atualizado para descrever esse comportamento.
+- **Justificativa:** preencher também a pré-visualização do simulador com um recurso existente no projeto, sem retirar a possibilidade de carregar uma imagem própria.
+
+## Solicitação: corrigir imagem do protótipo que não aparecia
+
+- **O que foi solicitado:** corrigir a tela do protótipo NextCode que não era exibida apesar de o arquivo estar na pasta pública.
+- **O que a IA retornou:** o endereço da imagem existe e responde corretamente; o elemento estava com carregamento lazy enquanto permanecia oculto até o evento `onLoad`, impedindo o carregamento no navegador verificado.
+- **O que foi alterado ou rejeitado:** removido o carregamento lazy das imagens ocultas do hero e da galeria, e o texto alternativo do hero agora informa carregamento ou falha em vez de pedir que a imagem existente seja adicionada.
+- **Justificativa:** as imagens agora carregam sem depender da visibilidade inicial do elemento; o estado de fallback também apresenta uma orientação coerente em caso de falha.
+
+## Solicitação: auditar o projeto e validar as regras de código
+
+- **O que foi solicitado:** verificar os requisitos da Sprint 4, atualizar o README com o deploy React e conferir integralmente as restrições de JavaScript recuperadas.
+- **O que a IA retornou:** a auditoria encontrou overflow horizontal no hero a 768 px, descrição antiga da galeria no README e o link de deploy React ausente. As demais estruturas exigidas estão presentes; não há suíte automatizada configurada.
+- **O que foi alterado ou rejeitado:** o layout em linha do hero foi movido para o breakpoint `lg`, o README passou a distinguir o deploy React (`https://sprint5-web-front.vercel.app`) do protótipo original (`https://smartystudy.vercel.app`), e a descrição da galeria foi corrigida. O upload do simulador passou a usar URL temporária revogada no cleanup do `useEffect`, sem instanciar `FileReader`.
+- **Justificativa:** corrigir a quebra observada em tablet, documentar os dois endereços sem confundi-los e manter o preview de imagens com liberação do recurso temporário.
 
 ## Validação
 
@@ -54,12 +75,17 @@
 - A aplicação local foi visualmente inspecionada com estilos carregados; o servidor de desenvolvimento anterior foi reiniciado após a alteração de dependências para atualizar a otimização do Vite.
 - A varredura das fontes não encontrou declarações `function`, `switch`, `throw`, armazenamento local, métodos proibidos de string/array, hooks nativos não permitidos ou estilos React em objetos literais.
 - Testes manuais no navegador confirmaram menu mobile e navegação por hash, tabs, accordion, modal da equipe com Escape, validação e feedback do formulário, upload local, demonstração OCR e uso dos ícones; não foram observados erros React/console nesses testes.
-- A galeria foi verificada sem os arquivos de imagem: os seis cartões mostram títulos e descrições e os botões permanecem inativos até as imagens correspondentes serem carregadas.
+- Os seis PNG da galeria foram carregados no navegador; títulos e descrições correspondem às telas de entrada, câmera, biblioteca e fila de revisão. O modal da galeria abriu e fechou com Escape.
 - Em verificação anterior da rota protegida, o acesso sem autenticação mostrou a tela de acesso demonstrativo; o login permitido levou à área de estudos e a API Open Library retornou resultados (o primeiro título apresentado foi “Calculus”).
 - A responsividade foi medida em 320, 375, 390, 430, 768, 1024, 1280, 1440 e 1920 px, além de quatro combinações de orientação retrato/paisagem; nenhuma apresentou rolagem horizontal.
-- A abertura do modal da galeria não pôde ser exercitada sem os arquivos de imagem, que continuam fora do projeto por solicitação.
 - `git diff --check` concluiu sem apontar erros.
 - Não havia suíte de testes automatizados configurada no projeto; as interações acima foram verificadas pelo navegador.
 - O deploy na Vercel não foi executado nem confirmado.
-- `NextCode-Sprint4.zip` foi gerado e verificado para confirmar a inclusão do código, configuração, README, este registro e o roster, sem `node_modules`, `.git`, `dist`, arquivos `.env` reais ou imagens.
+- `NextCode-Sprint4.zip` foi gerado e verificado para confirmar a inclusão do código, configuração, README, este registro, roster e imagens do protótipo utilizadas, sem `node_modules`, `.git`, `dist` ou arquivos `.env` reais.
 - Após a solicitação para facilitar o acesso, o link da Vercel respondeu HTTP 200, o servidor local `http://localhost:5173/` respondeu HTTP 200 e a página renderizada exibiu o atalho para o protótipo.
+- Nesta auditoria, `npm run build`, `npm audit` e `git diff --check` passaram; a auditoria de dependências reportou zero vulnerabilidades. A busca nas fontes não encontrou funções tradicionais, hooks não permitidos, instruções e métodos proibidos, datas, armazenamento local, objetos literais ou construtores de objetos.
+- A build de produção foi testada no navegador: login válido e inválido, bloqueio demonstrativo da rota privada, navegação para rota inexistente e atualização, busca Open Library com resultados, abas, FAQ, modais/fechamento por Escape, menu mobile, validação do formulário, upload de imagem e demonstração OCR. As imagens locais carregaram e não foram observados erros de console.
+- A responsividade da build local foi medida em 320, 375, 390, 430, 768, 844, 1024, 1280, 1440 e 1920 px, incluindo retrato e paisagem; não houve rolagem horizontal após ajustar o breakpoint do hero.
+- Os endereços publicados `https://sprint5-web-front.vercel.app/`, `/acesso`, `/area-estudos` e o PNG do protótipo responderam HTTP 200. A versão publicada apresentou overflow em 768 px antes da correção local; as alterações locais não foram enviadas nem implantadas.
+- `npm run` confirmou que não há script de testes automatizados. Lighthouse, auditoria automatizada de acessibilidade e simulação forçada de falha da API não foram executados.
+- `NextCode-Sprint4.zip` foi atualizado após a auditoria e conferido para conter as fontes, documentação, roster e imagens, sem `node_modules`, `.git`, `dist` ou arquivos `.env` reais.
