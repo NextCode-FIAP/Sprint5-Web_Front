@@ -25,7 +25,7 @@ src/pages/                 Acesso, espaço de estudos e página não encontrada
 src/services/              Requisição à Open Library
 src/App.jsx                Composição e rotas da aplicação
 src/main.jsx               Inicialização do React
-tailwind.css               Entrada do Tailwind CSS
+tailwind.css               Entrada do Tailwind CSS, servindo apenas para importação.
 ```
 
 ## Pré-requisitos e instalação
