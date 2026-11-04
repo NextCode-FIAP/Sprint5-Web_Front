@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiUpload, FiZap } from "react-icons/fi";
 
 const Simulator = () => {
@@ -7,6 +7,14 @@ const Simulator = () => {
     const [result, setResult] = useState(
         "As ações abaixo são demonstrações visuais; não analisam a imagem."
     );
+
+    useEffect(() => {
+        if (image.indexOf("blob:") !== 0) {
+            return;
+        }
+
+        return () => URL.revokeObjectURL(image);
+    }, [image]);
 
     const uploadImage = (event) => {
         const file = event.target.files[0];
@@ -27,19 +35,13 @@ const Simulator = () => {
             return;
         }
 
-        const reader = new FileReader();
-
-        reader.onload = (loadEvent) => {
-            setImage(loadEvent.target.result);
+        try {
+            setImage(URL.createObjectURL(file));
             setFilterApplied(false);
             setResult("Imagem carregada localmente para a demonstração.");
-        };
-
-        reader.onerror = () => {
+        } catch {
             setResult("Não foi possível abrir esta imagem.");
-        };
-
-        reader.readAsDataURL(file);
+        }
     };
 
     const applyFilter = () => {

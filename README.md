@@ -69,7 +69,7 @@ A autenticação é mantida apenas em memória durante a sessão da página. É 
 - Navegação adaptável a dispositivos móveis e menu responsivo.
 - Ícones vetoriais consistentes em vez de emojis na interface.
 - Abas informativas, accordion de perguntas, cartões da equipe e modais.
-- Galeria com cartões que apresentam o título e a descrição de cada tela enquanto as imagens não são adicionadas; os arquivos inseridos depois são exibidos automaticamente.
+- Galeria com seis telas PNG do protótipo, títulos e descrições correspondentes, com visualização ampliada em modal.
 - Simulador que inicia com a tela de revisão local do protótipo e permite substituí-la por uma imagem enviada pelo usuário. Filtro, OCR e flashcards são demonstrações visuais; OCR e flashcards não analisam nem processam a imagem.
 - Formulário de contato com validação local; não envia mensagens.
 - Área protegida demonstrativa e busca de títulos, autores e temas na Open Library, incluindo estados de carregamento, resultados e falhas.
@@ -92,9 +92,10 @@ Toda a apresentação e responsividade da aplicação são declaradas com classe
 ## Entrega, repositório e deploy
 
 - Repositório: https://github.com/NextCode-FIAP/Sprint5-Web_Front
-- Protótipo NextCode publicado na Vercel: https://smartystudy.vercel.app
+- Aplicação React publicada na Vercel: [https://sprint5-web-front.vercel.app](https://sprint5-web-front.vercel.app)
+- Protótipo NextCode original: [https://smartystudy.vercel.app](https://smartystudy.vercel.app)
 
-O link publicado também está disponível nos botões da página inicial e do rodapé. Ele abre o protótipo hospedado na Vercel; o código React deste repositório é a aplicação da Sprint 4 e não foi publicado automaticamente neste deploy. A configuração `vercel.json` prepara as rotas da aplicação React para acesso direto e atualização quando ela for implantada.
+O link da aplicação React é o deploy da Sprint 4. O link do protótipo original é mantido como referência da proposta anterior. A configuração `vercel.json` reescreve as rotas para a aplicação React permitir acesso direto e atualização das páginas.
 
 ## Uso de IA
 

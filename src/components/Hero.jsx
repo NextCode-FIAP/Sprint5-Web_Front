@@ -15,8 +15,8 @@ const Hero = () => {
 
     return (
         <section className="mx-auto flex min-h-[calc(100vh-70px)] w-full max-w-[1400px] flex-col justify-center gap-8 px-[5%] py-10 md:gap-10">
-            <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:gap-12">
-                <div className="w-full max-w-[650px] text-center md:text-left">
+            <div className="flex flex-col items-center justify-between gap-8 lg:flex-row lg:gap-12">
+                <div className="w-full max-w-[650px] text-center lg:text-left">
                     <span className="mb-4 inline-flex w-fit items-center justify-center rounded-full bg-[#0066FF]/10 px-4 py-2 text-center text-xs font-bold tracking-wide text-[#0066FF]">
                         DESAFIO JOVI SMARTPHONE 2026
                     </span>
@@ -48,11 +48,11 @@ const Hero = () => {
                 </div>
 
                 <div className="relative flex w-full flex-1 items-center justify-center px-3 py-5">
-                    <div className="absolute h-[min(420px,90vw)] w-[min(320px,80vw)] rotate-[-2deg] rounded-3xl border border-white bg-gradient-to-br from-white to-[#F4F6F9] shadow-[0_20px_40px_rgba(0,102,255,0.08)] md:w-[min(260px,70vw)] xl:w-[min(320px,80vw)]" />
-                    <div className="absolute h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(0,229,255,0.25),rgba(0,102,255,0.15)_60%,transparent)]" />
+                    <div className="absolute h-[min(420px,90vw)] w-[min(320px,80vw)] rotate-[-2deg] rounded-3xl border border-white bg-gradient-to-br from-white to-[#F4F6F9] shadow-[0_20px_40px_rgba(0,102,255,0.08)] lg:w-[min(220px,55vw)] xl:w-[min(320px,80vw)]" />
+                    <div className="absolute h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(0,229,255,0.25),rgba(0,102,255,0.15)_60%,transparent)] lg:h-48 lg:w-48 xl:h-64 xl:w-64" />
                     {imagemDisponivel && (
                         <img
-                            className={`relative z-10 max-h-[min(420px,85vw)] w-full max-w-[280px] rounded-2xl border-4 border-[#0066FF] bg-white object-contain shadow-xl ${
+                            className={`relative z-10 max-h-[min(420px,85vw)] w-full max-w-[280px] rounded-2xl border-4 border-[#0066FF] bg-white object-contain shadow-xl lg:max-w-[220px] xl:max-w-[280px] ${
                                 imagemCarregada ? "block" : "hidden"
                             }`}
                             src="/img/prototipo/inicial.png"
@@ -63,7 +63,7 @@ const Hero = () => {
                     )}
                     {!imagemCarregada && (
                         <div
-                            className="relative z-10 flex min-h-[320px] w-full max-w-[280px] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[#0066FF] bg-gradient-to-br from-white to-[#EAF3FF] p-7 text-center shadow-lg"
+                            className="relative z-10 flex min-h-[320px] w-full max-w-[280px] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[#0066FF] bg-gradient-to-br from-white to-[#EAF3FF] p-7 text-center shadow-lg lg:max-w-[220px] xl:max-w-[280px]"
                             role="img"
                             aria-label="Espaço reservado para a tela do protótipo"
                         >

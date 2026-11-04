@@ -60,6 +60,13 @@
 - **O que foi alterado ou rejeitado:** removido o carregamento lazy das imagens ocultas do hero e da galeria, e o texto alternativo do hero agora informa carregamento ou falha em vez de pedir que a imagem existente seja adicionada.
 - **Justificativa:** as imagens agora carregam sem depender da visibilidade inicial do elemento; o estado de fallback também apresenta uma orientação coerente em caso de falha.
 
+## Solicitação: auditar o projeto e validar as regras de código
+
+- **O que foi solicitado:** verificar os requisitos da Sprint 4, atualizar o README com o deploy React e conferir integralmente as restrições de JavaScript recuperadas.
+- **O que a IA retornou:** a auditoria encontrou overflow horizontal no hero a 768 px, descrição antiga da galeria no README e o link de deploy React ausente. As demais estruturas exigidas estão presentes; não há suíte automatizada configurada.
+- **O que foi alterado ou rejeitado:** o layout em linha do hero foi movido para o breakpoint `lg`, o README passou a distinguir o deploy React (`https://sprint5-web-front.vercel.app`) do protótipo original (`https://smartystudy.vercel.app`), e a descrição da galeria foi corrigida. O upload do simulador passou a usar URL temporária revogada no cleanup do `useEffect`, sem instanciar `FileReader`.
+- **Justificativa:** corrigir a quebra observada em tablet, documentar os dois endereços sem confundi-los e manter o preview de imagens com liberação do recurso temporário.
+
 ## Validação
 
 - `npm install react-icons` concluiu; o relatório do npm indicou zero vulnerabilidades.
@@ -76,3 +83,9 @@
 - O deploy na Vercel não foi executado nem confirmado.
 - `NextCode-Sprint4.zip` foi gerado e verificado para confirmar a inclusão do código, configuração, README, este registro, roster e imagens do protótipo utilizadas, sem `node_modules`, `.git`, `dist` ou arquivos `.env` reais.
 - Após a solicitação para facilitar o acesso, o link da Vercel respondeu HTTP 200, o servidor local `http://localhost:5173/` respondeu HTTP 200 e a página renderizada exibiu o atalho para o protótipo.
+- Nesta auditoria, `npm run build`, `npm audit` e `git diff --check` passaram; a auditoria de dependências reportou zero vulnerabilidades. A busca nas fontes não encontrou funções tradicionais, hooks não permitidos, instruções e métodos proibidos, datas, armazenamento local, objetos literais ou construtores de objetos.
+- A build de produção foi testada no navegador: login válido e inválido, bloqueio demonstrativo da rota privada, navegação para rota inexistente e atualização, busca Open Library com resultados, abas, FAQ, modais/fechamento por Escape, menu mobile, validação do formulário, upload de imagem e demonstração OCR. As imagens locais carregaram e não foram observados erros de console.
+- A responsividade da build local foi medida em 320, 375, 390, 430, 768, 844, 1024, 1280, 1440 e 1920 px, incluindo retrato e paisagem; não houve rolagem horizontal após ajustar o breakpoint do hero.
+- Os endereços publicados `https://sprint5-web-front.vercel.app/`, `/acesso`, `/area-estudos` e o PNG do protótipo responderam HTTP 200. A versão publicada apresentou overflow em 768 px antes da correção local; as alterações locais não foram enviadas nem implantadas.
+- `npm run` confirmou que não há script de testes automatizados. Lighthouse, auditoria automatizada de acessibilidade e simulação forçada de falha da API não foram executados.
+- `NextCode-Sprint4.zip` foi atualizado após a auditoria e conferido para conter as fontes, documentação, roster e imagens, sem `node_modules`, `.git`, `dist` ou arquivos `.env` reais.
