@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FiUpload, FiZap } from "react-icons/fi";
 
 const Simulator = () => {
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState("/img/prototipo/revisao.png");
     const [filterApplied, setFilterApplied] = useState(false);
     const [result, setResult] = useState(
         "As ações abaixo são demonstrações visuais; não analisam a imagem."
@@ -85,7 +85,7 @@ const Simulator = () => {
                         <img
                             className="h-full w-full object-contain"
                             src={image}
-                            alt="Pré-visualização local da imagem enviada"
+                            alt="Tela de revisão do protótipo JOVI usada como imagem de exemplo"
                         />
                     ) : (
                         <span>Amostra: Equação de Ondas &amp; Óptica</span>

@@ -62,7 +62,6 @@ const Gallery = () => {
                                 }`}
                                 src={`/img/prototipo/${image[0]}`}
                                 alt={image[2]}
-                                loading="lazy"
                                 onLoad={() => {
                                     setLoadedImages((current) => {
                                         if (current.includes(index)) {

@@ -52,10 +52,11 @@ const Hero = () => {
                     <div className="absolute h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(0,229,255,0.25),rgba(0,102,255,0.15)_60%,transparent)]" />
                     {imagemDisponivel && (
                         <img
-                            className="relative z-10 max-h-[min(420px,85vw)] w-full max-w-[280px] rounded-2xl border-4 border-[#0066FF] bg-white object-contain shadow-xl"
+                            className={`relative z-10 max-h-[min(420px,85vw)] w-full max-w-[280px] rounded-2xl border-4 border-[#0066FF] bg-white object-contain shadow-xl ${
+                                imagemCarregada ? "block" : "hidden"
+                            }`}
                             src="/img/prototipo/inicial.png"
                             alt="Tela de Login e Cadastro - Câmera Acadêmica"
-                            loading="lazy"
                             onLoad={() => setImagemCarregada(true)}
                             onError={() => setImagemDisponivel(false)}
                         />
@@ -70,9 +71,9 @@ const Hero = () => {
                                 Protótipo NextCode
                             </span>
                             <p className="text-sm leading-relaxed text-[#64748B]">
-                                Adicione <code>inicial.png</code> em{" "}
-                                <code className="break-all">public/img/prototipo/</code>{" "}
-                                para exibir esta tela.
+                                {imagemDisponivel
+                                    ? "Carregando a tela do protótipo..."
+                                    : "Não foi possível carregar a imagem em public/img/prototipo/inicial.png."}
                             </p>
                         </div>
                     )}

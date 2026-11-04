@@ -18,7 +18,7 @@ Apresentar a proposta NextCode e reunir uma galeria de protótipo, um simulador 
 ## Estrutura
 
 ```text
-public/img/prototipo/      Espaço para adicionar imagens do protótipo
+public/img/prototipo/      Telas PNG do protótipo JOVI
 src/components/            Seções e interações reutilizáveis
 src/hooks/                 Navegação, autenticação, modais e busca
 src/pages/                 Acesso, espaço de estudos e página não encontrada
@@ -70,22 +70,20 @@ A autenticação é mantida apenas em memória durante a sessão da página. É 
 - Ícones vetoriais consistentes em vez de emojis na interface.
 - Abas informativas, accordion de perguntas, cartões da equipe e modais.
 - Galeria com cartões que apresentam o título e a descrição de cada tela enquanto as imagens não são adicionadas; os arquivos inseridos depois são exibidos automaticamente.
-- Simulador que pré-visualiza uma imagem local e demonstra visualmente filtro, OCR e flashcards. OCR e flashcards não analisam nem processam a imagem.
+- Simulador que inicia com a tela de revisão local do protótipo e permite substituí-la por uma imagem enviada pelo usuário. Filtro, OCR e flashcards são demonstrações visuais; OCR e flashcards não analisam nem processam a imagem.
 - Formulário de contato com validação local; não envia mensagens.
 - Área protegida demonstrativa e busca de títulos, autores e temas na Open Library, incluindo estados de carregamento, resultados e falhas.
 
-### Adicionar as imagens do protótipo
+### Imagens do protótipo
 
-Copie os arquivos originais para `public/img/prototipo/`. A galeria usa estes nomes:
+As telas do protótipo ficam em `public/img/prototipo/`. A galeria exibe cada imagem com título e descrição de seu conteúdo:
 
-- `Cadastro.jpg`
-- `Inicio-lousa.jpg`
-- `inicio-IA.jpg`
-- `Layout-Camera.jpg`
-- `Pasta_Aberta.jpg`
-- `Pasta_fechada.jpg`
+- `inicial.png` — tela de entrada, também usada no hero.
+- `camera.png` — câmera e modos de captura.
+- `biblioteca.png` e `biblioteca_icon.png` — biblioteca vazia e biblioteca com materiais.
+- `revisao.png` e `revisao_vazia.png` — fila de revisão com materiais e vazia.
 
-Para a imagem do hero, adicione também `inicial.png`. A galeria apresenta o título e uma descrição do conteúdo de cada tela até que o respectivo arquivo esteja disponível.
+Se substituir ou adicionar telas, atualize os nomes, títulos e descrições em `src/components/Gallery.jsx`.
 
 ## Responsividade e Tailwind
 
@@ -100,4 +98,4 @@ O link publicado também está disponível nos botões da página inicial e do r
 
 ## Uso de IA
 
-A IA foi utilizada para auditar a estrutura e a branch, comparar as funcionalidades com o projeto de referência da Sprint 3 e implementar a migração técnica, rotas demonstrativas, hooks, integração pública, ícones vetoriais e documentação. As imagens foram deixadas de fora por solicitação do usuário; os cartões da galeria exibem títulos e descrições baseados nas legendas existentes até que os arquivos sejam adicionados. O arquivo [AI.md](./AI.md) registra o escopo e as decisões; nenhuma implantação, autenticação real ou processamento de OCR foi alegado.
+A IA foi utilizada para auditar a estrutura e a branch, comparar as funcionalidades com o projeto de referência da Sprint 3 e implementar a migração técnica, rotas demonstrativas, hooks, integração pública, ícones vetoriais e documentação. As telas existentes do protótipo foram aproveitadas na galeria, acompanhadas por títulos e descrições coerentes com seu conteúdo. O arquivo [AI.md](./AI.md) registra o escopo e as decisões; nenhuma implantação, autenticação real ou processamento de OCR foi alegado.
